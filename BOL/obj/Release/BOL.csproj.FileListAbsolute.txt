@@ -1,0 +1,5 @@
+C:\Users\dridi\Desktop\projet PCD\projet\solution6\VientVendre\BOL\bin\Release\BOL.dll
+C:\Users\dridi\Desktop\projet PCD\projet\solution6\VientVendre\BOL\bin\Release\BOL.pdb
+C:\Users\dridi\Desktop\projet PCD\projet\solution6\VientVendre\BOL\obj\Release\BOL.csprojResolveAssemblyReference.cache
+C:\Users\dridi\Desktop\projet PCD\projet\solution6\VientVendre\BOL\obj\Release\BOL.dll
+C:\Users\dridi\Desktop\projet PCD\projet\solution6\VientVendre\BOL\obj\Release\BOL.pdb
