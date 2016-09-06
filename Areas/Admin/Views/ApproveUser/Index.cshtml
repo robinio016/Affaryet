@@ -1,0 +1,102 @@
+﻿@model IEnumerable<VientVendreMVC.Areas.Security.Models.UserViewModel>
+
+<h2>Manage User </h2>
+@if (TempData["Msg"] != null)
+{
+    <h4>
+        @TempData["Msg"].ToString()
+    </h4>
+}
+<p>
+    @if (ViewBag.Status == "P")
+    {
+        <b>@Html.ActionLink("Pending Users", "Index", new { status = "P" }) |</b>
+    }
+    else
+    {
+        @Html.ActionLink("Pending Users", "Index", new { status = "P" })
+    }
+    @if (ViewBag.Status == "A")
+    {
+        <b>@Html.ActionLink("Approve Users", "Index", new { status = "A" })</b>
+    }
+    else
+    {
+        @Html.ActionLink("Approve Users", "Index", new { status = "A" })
+    }
+
+    @if (ViewBag.Status == "R")
+    {
+        <b>@Html.ActionLink("Reject Users", "Index", new { status = "R" })</b>
+    }
+    else
+    {
+        @Html.ActionLink("Reject Users", "Index", new { status = "R" })
+    }
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Approve Or Reject
+        </th>
+       
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+
+
+        <th>
+            @Html.DisplayNameFor(model => model.IsApproved)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.ActionLink("Approve", "Approve", new { id = item.UserID }, new { onclick = "return ConfirmApprove()" }) |
+            @Html.ActionLink("Reject", "Reject", new { id = item.UserID }, new { onclick = "return ConfirmReject()" })
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhoneNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.IsApproved)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>
+<script>
+    function ConfirmApprove()
+    {
+        return confirm('Are you sure you want to approve');
+    }
+    function ConfirmReject() {
+        return confirm('Are you sure you want to Reject');
+    }
+</script>

@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+    <link href="@Url.Content("~/Content/kendo/2015.1.408/kendo.common.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/kendo/2015.1.408/kendo.mobile.all.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/kendo/2015.1.408/kendo.dataviz.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/kendo/2015.1.408/kendo.default.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/kendo/2015.1.408/kendo.dataviz.default.min.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Scripts/kendo/2015.1.408/jquery.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo/2015.1.408/jszip.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo/2015.1.408/kendo.all.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo/2015.1.408/kendo.aspnetmvc.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo.modernizr.custom.js")"></script>
+</head>
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Afariyet</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li class="active">@Html.ActionLink("Home", "Index", new { Controller = "Home", Area = "Common" })</li>
+                    <li>@Html.ActionLink("About", "Index", new { Controller = "AboutUs", Area = "Common" })</li>
+                    <li>@Html.ActionLink("Contact", "Index", new { Controller = "ContactUs", Area = "Common" })</li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        if (User.IsInRole("A"))
+                        {
+                            <li>@Html.ActionLink("ListCategory", "Index", new { Controller = "ListCategory", Area = "Admin" })</li>
+                            <li>@Html.ActionLink("ListRgion", "Index", new { Controller = "ListRegion", Area = "Admin" })</li>
+                            <li>@Html.ActionLink("ListUser", "Index", new { Controller = "ListUser", Area = "Admin" })</li>
+                            <li>@Html.ActionLink("ApproveUser", "Index", new { Controller = "ApproveUser", Area = "Admin" })</li>
+                        }
+                        if (User.IsInRole("A") || User.IsInRole("U"))
+                        {
+                            <li>@Html.ActionLink("Annonces", "Index", "ListAnnonce")</li>
+                            <li>@Html.ActionLink("Products", "Index", "ListProduct", new { @area = "Common" })</li>
+                            <li>@Html.ActionLink("Deposer Anonnce", "Index", new { Controller = "AddOrEditMyAnnonce", Area = "User" })</li>
+                            <li>@Html.ActionLink("Logout", "LogOut", new { Controller = "Login", Area = "Security" })</li>
+
+                        }
+
+
+                    }
+                    else
+                    {
+                        <li>@Html.ActionLink("Login", "Index", new { Controller = "Login", Area = "Security" })</li>
+                    }
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>

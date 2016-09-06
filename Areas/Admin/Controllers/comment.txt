@@ -1,0 +1,3 @@
+﻿AddOrEditAnnonceController et AddOrEditProductController peut etre seront utilisées comme approuveAnnonce or product 
+with checkbox
+

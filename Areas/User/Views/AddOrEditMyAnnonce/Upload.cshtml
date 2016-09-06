@@ -1,0 +1,41 @@
+﻿@model VientVendreMVC.Areas.User.Models.ProductViewModel
+
+@using (Html.BeginForm("Upload", "AddOrEditMyAnnonce", FormMethod.Post
+                                                                        , new { enctype = "multipart/form-data" }))
+{
+    <input type="file" name="file" size="40" />
+    <input type="submit" value="Upload" />
+    var i = int.Parse(TempData["ProductPhoto"].ToString());
+    TempData["ProductPhoto"] = i;
+}
+<br />
+<div>
+    <strong>Result</strong> <br />
+    @Html.Raw(ViewBag.Result)
+</div>
+
+
+
+//////////////////////////////
+//////////////////////////////////////
+////////////////////////////////////////////////
+
+<br />
+<div>
+    <strong>Result</strong> <br />
+    @Html.Raw(ViewBag.Result)
+</div>
+
+
+@{
+    int numberOfPhotoUploaded = int.Parse(TempData["ProductPhoto"].ToString());
+    for (int i = 0; i < numberOfPhotoUploaded; i++)
+    {
+        var base64 = Convert.ToBase64String(Model.im);
+        var imgSrc = String.Format("data:image/jpg;base64,{0}", base64);
+
+        <img src="@imgSrc" width="100" height="100" />
+    }
+    TempData["ProductPhoto"] = numberOfPhotoUploaded;
+
+}

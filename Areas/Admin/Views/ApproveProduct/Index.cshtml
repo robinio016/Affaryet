@@ -1,0 +1,142 @@
+﻿@model IEnumerable<VientVendreMVC.Areas.User.Models.ProductViewModel>
+<script src="~/Scripts/jquery-2.1.4.js"></script>
+<h2>Manage Products</h2>
+@if(TempData["Msg"] != null)
+{
+    <h4>
+        @TempData["Msg"].ToString()
+    </h4>
+}
+<p>
+    @if(ViewBag.Status=="P")
+    {
+        <b>@Html.ActionLink("Pending Products", "Index", new { status = "P" }) |</b> 
+    }
+    else
+    {
+        @Html.ActionLink("Pending Products", "Index", new { status = "P" }) 
+    }
+    @if (ViewBag.Status == "A")
+    {
+        <b>@Html.ActionLink("Approve Products", "Index", new { status = "A" })</b>
+    }
+    else
+    {
+        @Html.ActionLink("Approve Products", "Index", new { status = "A" })
+    }
+
+    @if (ViewBag.Status == "R")
+    {
+        <b>@Html.ActionLink("Reject Products", "Index", new { status = "R" })</b>
+    }
+    else
+    {
+        @Html.ActionLink("Reject Products", "Index", new { status = "R" })
+    }
+
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.CheckBox("selectall")
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductPrice)
+        </th>
+     
+        <th>
+            @Html.DisplayNameFor(model => model.IsApproved)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+           @Html.CheckBox(item.ProductID.ToString(), false, new { @class="ckb",Id=item.ProductID})
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductPrice)
+        </td>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.IsApproved)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new {  id=item.ProductID }, new { onclick = "return(confirm('Etes-vous sûr de vouloir supprimer cette entrée?'));" })
+        </td>
+    </tr>
+}
+
+</table>
+<input type="button" id="Approve" value="Approve" class="btn btn-primary" />
+<input type="button" id="Reject" value="Reject" class="btn btn-primary" />
+<script>
+    $(document).ready(function () {
+        $("#selectall").click(function (event) {
+            if (this.checked) {
+                $('.ckb').each(function () {
+                    this.checked = true;
+                });
+            } else {
+                $('.ckb').each(function () {
+                    this.checked = false;
+                });
+            }
+        });
+
+        $("#Approve").click(function () {
+            checkedIds = $(".ckb").filter(":checked").map(function () { return this.id; });
+            $.ajax({
+                type: "POST",
+                url: "@Url.Action("ApproveOrRejectAll","ApproveProduct")",
+                traditional: true,
+                data: { Ids: checkedIds.toArray(), status: "A" },
+                success: successFunc,
+                error: errorFunc
+            });
+            function successFunc(data, status) {
+                alert("approved successfully");
+                location.reload();
+            }
+            function errorFunc() {
+                alert("error");
+            }
+        });
+
+        $("#Reject").click(function () {
+            checkedIds = $(".ckb").filter(":checked").map(function () { return this.id; });
+            $.ajax({
+                type: "POST",
+                url: "@Url.Action("ApproveOrRejectAll","ApproveProduct")",
+                traditional: true,
+            data: { Ids: checkedIds.toArray(), status: "R" },
+            success: successFunc,
+            error: errorFunc
+        });
+        function successFunc(data, status) {
+            alert("rejected successfully");
+            location.reload();
+        }
+        function errorFunc() {
+            alert("error");
+        }
+    });
+    });
+    function ConfirmApprove()
+    {
+        return confirm('Are you sure you want to approve');
+    }
+    function ConfirmReject() {
+        return confirm('Are you sure you want to Reject');
+    }
+</script>

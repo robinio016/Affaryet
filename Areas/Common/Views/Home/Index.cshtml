@@ -1,0 +1,203 @@
+﻿@using Jmelosegui.Mvc.GoogleMap
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<script src="~/Scripts/jquery-1.9.1.min.js"></script>
+<script>
+        if (window !== top) top.location = window.location;
+</script>
+
+
+<div class="jumbotron">
+    <div class="container text-center">
+        <h1>Chercher Ton Produit</h1>
+        <div class="row">
+            
+                @using (Html.BeginForm("SearchEngine", "ListProduct", FormMethod.Post, new { @class = "navbar-form navbar-left", @role = "search" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="chercher" name="search">
+                        </div>
+
+                    </div>
+
+                    <div class="col-sm-2">
+                        <button type="submit" class="btn btn-default">Ok</button>
+                    </div>
+
+                    <div class="col-sm-3">
+                        <div class="dropdown">
+                            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                                Category
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                @{
+                                    foreach (var cat in ViewBag.categories)
+                                    {
+
+                                        <li><a href="/Common/Home/GetCategory">@cat</a></li>
+
+                                    }
+
+                                }
+
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3">
+                        <div class="dropdown">
+                            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                                Region
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                @{
+                                    foreach (var reg in ViewBag.regions)
+                                    {
+                                        int i = 0;
+
+                                        <li><a href="/Common/ListProduct/GetProductByRegion/1" id=@i>@reg</a></li>
+
+                                        i = i + 1;
+                                    }
+
+                                }
+
+                            </ul>
+                        </div>
+                    </div>
+                }
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid bg-3 text-center">
+    <h3>Some of my Work</h3><br>
+    <div class="row">
+        <div class="col-sm-4">
+            <p>Affaire</p>
+            <img src="~/photoTayara/Emploie et Affaire.png" class="img-responsive" style="width:80%" alt="Image" id="imageid1">
+        </div>
+        <div class="col-sm-4">
+            <p>Imobilier</p>
+            <a href="/Common/ListProduct/GetProductByCategory/2"><img src="~/photoTayara/Imobilier.png" class="img-responsive" style="width:80%" alt="Image" id="imageid2"></a>
+</div>
+        <div class="col-sm-4">
+            <p>Objets Personnels</p>
+            <a href="/Common/ListProduct/GetProductByCategory/1" ><img src="~/photoTayara/maison et enfant.png" class="img-responsive" style="width:80%" alt="Image" id="imageid3"></a>
+</div>
+
+    </div>
+</div><br>
+
+<div class="container-fluid bg-3 text-center">
+    <div class="row">
+        <div class="col-sm-4">
+            <p>Multimedia</p>
+            <a href="/Common/ListProduct/GetProductByCategory/1"><img src="~/photoTayara/Multimedia.png" class="img-responsive" style="width:80%" alt="Image" id="imageid4"></a>
+</div>
+
+        <div class="col-sm-4">
+            <p>Véhicule</p>
+            <a href="/Common/ListProduct/GetProductByCategory/4"><img src="~/photoTayara/Vehicule.png" class="img-responsive" style="width:80%" alt="Image" id="imageid5"></a>
+</div>
+        <div class="col-sm-4">
+            <p>Vetement</p>
+            <a href="/Common/ListProduct/GetProductByCategory/3"> <img src="~/photoTayara/vetement.png" class="img-responsive" style="width:80%" alt="Image" id="imageid6"></a>
+</div>
+
+    </div>
+</div><br><br>
+<div class="row">
+
+    <div class="col-md-6">
+        @{
+            foreach (var reg in ViewBag.regions)
+            {
+                int i = 0;
+
+                    <a href="/Common/ListProduct/GetProductByCategory/1" id=@i>@reg</a>
+                    <br>
+                i = i + 1;
+            }
+
+        }
+
+        @{
+            foreach (var cat in ViewBag.categories)
+            {
+
+                    <a href="/Common/Home/GetCategory">@cat</a>
+
+            }
+
+        }
+
+    </div>
+    <div class="col-md-6">
+              
+           @(
+
+                     Html.GoogleMap()
+                         .Name("map")
+                         .Height(300)
+                         .Center(c => c.Latitude(37.2744200)
+                                       .Longitude(9.8739100))
+                         .Markers(m => m.Add().Title("Hello World!"))
+        )
+           
+    </div>
+</div>
+@if (ViewBag.Altitude != null)
+{
+   <h1>@ViewBag.Altitude</h1> 
+}
+    <script type='text/javascript'>
+        $(document).ready(function () {
+            $("#imageid1").hover(function () {
+                $(this).attr("src", "/photoTayara/Emploie et Affaire Clicked.png");
+            }, function () {
+                $(this).attr("src", "/photoTayara/Emploie et Affaire.png");
+            });
+            $("#imageid2").hover(function () {
+                $(this).attr("src", "/photoTayara/Immobilier Clicked.png");
+            }, function () {
+                $(this).attr("src", "/photoTayara/Imobilier.png");
+            });
+            $("#imageid3").hover(function () {
+                $(this).attr("src", "/photoTayara/Maison et Enfant clicked.png");
+            }, function () {
+                $(this).attr("src", "/photoTayara/maison et enfant.png");
+            });
+            $("#imageid4").hover(function () {
+                $(this).attr("src", "/photoTayara/MultimediaClicked.png");
+            }, function () {
+                $(this).attr("src", "/photoTayara/Multimedia.png");
+            });
+            $("#imageid5").hover(function () {
+                $(this).attr("src", "/photoTayara/Vehicule Clicked.png");
+            }, function () {
+                $(this).attr("src", "/photoTayara/Vehicule.png");
+            });
+            $("#imageid6").hover(function () {
+                $(this).attr("src", "/photoTayara/Vetement Clicked.png");
+            }, function () {
+                $(this).attr("src", "/photoTayara/vetement.png");
+            });
+
+          
+            
+        });
+    </script>
+
+    @section scripts
+    {
+            @(Html.GoogleMap().ScriptRegistrar())
+    }

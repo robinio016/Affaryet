@@ -1,0 +1,376 @@
+﻿@model IEnumerable<VientVendreMVC.Areas.Common.Models.ProductViewModel>
+@using Jmelosegui.Mvc.GoogleMap
+
+<script src="~/Scripts/jquery-1.9.1.min.js"></script>
+@{
+    ViewBag.Title = "Index";
+}
+<style>
+    .comment-list .row {
+  margin-bottom: 0px;
+}
+.comment-list .panel .panel-heading {
+  padding: 4px 15px;
+  position: absolute;
+  border:none;
+  /*Panel-heading border radius*/
+  border-top-right-radius:0px;
+  top: 1px;
+}
+.comment-list .panel .panel-heading.right {
+  border-right-width: 0px;
+  /*Panel-heading border radius*/
+  border-top-left-radius:0px;
+  right: 16px;
+}
+.comment-list .panel .panel-heading .panel-body {
+  padding-top: 6px;
+}
+.comment-list figcaption {
+  /*For wrapping text in thumbnail*/
+  word-wrap: break-word;
+}
+/* Portrait tablets and medium desktops */
+
+  .comment-list .panel.arrow.left:after, .comment-list .panel.arrow.left:before {
+    border-left: 0;
+  }
+  /*****Left Arrow*****/
+  /*Outline effect style*/
+  .comment-list .panel.arrow.left:before {
+    left: 0px;
+    top: 30px;
+    /*Use boarder color of panel*/
+    border-right-color: inherit;
+    border-width: 16px;
+  }
+  /*Background color effect*/
+  .comment-list .panel.arrow.left:after {
+    left: 1px;
+    top: 31px;
+    /*Change for different outline color*/
+    border-right-color: #FFFFFF;
+    border-width: 15px;
+  }
+  /*****Right Arrow*****/
+  /*Outline effect style*/
+  .comment-list .panel.arrow.right:before {
+    right: -16px;
+    top: 30px;
+    /*Use boarder color of panel*/
+    border-left-color: inherit;
+    border-width: 16px;
+  }
+  /*Background color effect*/
+  .comment-list .panel.arrow.right:after {
+    right: -14px;
+    top: 31px;
+    /*Change for different outline color*/
+    border-left-color: #FFFFFF;
+    border-width: 15px;
+  }
+}
+.comment-list .comment-post {
+  margin-top: 6px;
+}
+</style>
+
+
+<h2>Index</h2>
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+
+        <div class="item active">
+            <center>
+                @{
+                    {
+                        var base64 = Convert.ToBase64String(Model.FirstOrDefault().im);
+                        var imgSrc = String.Format("data:image/jpg;base64,{0}", base64);
+
+                        <img src="@imgSrc" />
+                    }
+
+                }
+            </center>
+            <div class="carousel-caption">
+        
+            </div>
+        </div>
+
+    @{
+        foreach (var photo in Model)
+        {
+            <div class="item">
+                <center>
+                    @{
+                        if (photo.im != null)
+                        {
+                            var base64 = Convert.ToBase64String(photo.im);
+                            var imgSrc = String.Format("data:image/jpg;base64,{0}", base64);
+                            <img src="@imgSrc" />
+                        }
+                    }
+                </center> 
+                    <div class="carousel-caption">
+                        <h3>@photo.ProductName</h3>
+                        <p>@photo.Description</p>
+                    </div>
+</div>
+
+                        }
+        }
+
+
+
+        <div class="item">
+            @*@{
+                {
+                    var base64 = Convert.ToBase64String(Model.ElementAt(1).im);
+                    var imgSrc = String.Format("data:image/jpg;base64,{0}", base64);
+
+                    <img src="@imgSrc" />
+                    }
+                }*@
+
+
+            <div class="carousel-caption">
+                <h3>Chania</h3>
+                <p>The atmosphere in Chania has a touch of Florence and Venice.</p>
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+
+
+<br />
+
+  <center>
+      <button type="button" class="btn btn-info">PRIX : @Model.Last().ProductPrice</button>
+      <h2>Description</h2>
+      <p>
+          @Model.Last().Description
+      </p>
+  </center>
+ 
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-8">
+                            <h2>@Model.Last().OwnerUserName</h2>
+                            <p><strong>Téléphone: </strong> @Model.Last().OwnerUserPhone </p>
+                            <p><strong>E-mail: </strong> @Model.Last().OwnerUserEmail </p>
+                            <p><strong>Address: </strong> @Model.Last().OwnerUserAddress </p>
+                            <p>
+                                <strong>Disponible en: </strong>
+                                @for (int h= 0; h < Model.Last().regionsName.Count(); h++)
+                                {
+                                    <span class="label label-info tags">@Model.Last().regionsName[h]</span>
+                                }
+                                
+                                
+                            </p>
+                        </div><!--/col-->
+                        <div class="col-xs-12 col-sm-4 text-center">
+                            <img class="center-block img-circle img-responsive" alt="" src="http://www.keita-gaming.com/assets/profile/default-avatar-c5d8ec086224cb6fc4e395f4ba3018c2.jpg">
+                            <ul title="Ratings" class="list-inline ratings text-center">
+                                <li><a href="#"><span class="fa fa-star fa-lg"></span></a></li>
+                                <li><a href="#"><span class="fa fa-star fa-lg"></span></a></li>
+                                <li><a href="#"><span class="fa fa-star fa-lg"></span></a></li>
+                                <li><a href="#"><span class="fa fa-star fa-lg"></span></a></li>
+                                <li><a href="#"><span class="fa fa-star fa-lg"></span></a></li>
+                            </ul>
+                        </div><!--/col-->
+                        <div class="col-md-6">
+
+                           
+
+                        </div>
+
+                    </div><!--/row-->
+                </div><!--/panel-body-->
+            </div><!--/panel-->
+
+
+
+        </div>
+        <div class="col-md-6">
+            @(
+
+                     Html.GoogleMap()
+                         .Name("map")
+                         .Height(300)
+                         .Center(c => c.Latitude(37.2744200)
+                                       .Longitude(9.8739100))
+                         .Markers(m => m.Add().Title("Hello World!"))
+            )
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <h2 class="page-header">Comments</h2>
+            <section class="comment-list">
+                <!-- First Comment -->
+                @{ int i = 0;
+                    foreach (var commentaire in Model.Last().comm)
+                    {
+                        <article class="row">
+                            <div class="col-md-2 col-sm-2 hidden-xs">
+                                <figure class="thumbnail">
+                                    <img class="img-responsive" src="http://www.keita-gaming.com/assets/profile/default-avatar-c5d8ec086224cb6fc4e395f4ba3018c2.jpg" />
+                                    <figcaption class="text-center">@Model.Last().UserName.ElementAt(i).ToString()</figcaption>
+                                </figure>
+                            </div>
+                            <div class="col-md-10 col-sm-10">
+                                <div class="panel panel-default arrow left">
+                                    <div class="panel-body">
+                                        <header class="text-left">
+                                            
+                                            <time class="comment-date" datetime="16-12-2014 01:05"><i class="fa fa-clock-o"></i> @commentaire.PostDate.ToString()</time>
+                                        </header>
+                                        <div class="comment-post">
+                                            <p>
+                                                @commentaire.Comment
+                                            </p>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        i++;
+                    }
+                }
+                
+                
+                
+            </section>
+        </div>
+    </div>
+</div>
+
+
+<article class="row">
+    <div class="col-md-2 col-sm-2 hidden-xs">
+        <figure class="thumbnail">
+            <img class="img-responsive" src="http://www.keita-gaming.com/assets/profile/default-avatar-c5d8ec086224cb6fc4e395f4ba3018c2.jpg" />
+            <figcaption class="text-center">@User.Identity.Name</figcaption>
+        </figure>
+    </div>
+    <div class="col-md-10 col-sm-10">
+        <div class="panel panel-default arrow left">
+            <div class="panel-body">
+                <header class="text-left">
+
+                </header>
+                @using (Html.BeginForm("AddComment","ProductInfo",FormMethod.Post))
+                {
+                @Html.AntiForgeryToken()
+                <div>
+                    @Html.TextArea("Comment", new { @class = "form-control", rows = "3" ,cols="70"})
+                </div>
+                <input type="submit" value="add Comment" />
+                }
+
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+@if (ViewBag.Result != null)
+{
+    <h3> @ViewBag.Result</h3>
+}
+<div class="container-fluid">
+    <div class="row">
+
+        <div class="col-sm-9">
+            <h4><small>RECENT POSTS</small></h4>
+            @using (Html.BeginForm("ContactUser", "ProductInfo", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-horizontal">
+                    <h4>AnnonceViewModel</h4>
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })                 
+
+                    
+
+                    <div class="form-group">
+                        @Html.Label("Subject","Subject", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.Editor("Subject", new { htmlAttributes = new { @class = "form-control", @rows = "3" } })
+                            @Html.ValidationMessage("Subject", "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.Label("Description","Descrpition", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextArea("Description", new { htmlAttributes = new { @class = "form-control", @rows = "3" } })
+                            @Html.ValidationMessage("Description", "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Envoyer" class="btn btn-default" />
+                        </div>
+                    </div>
+                </div>
+            }
+            <div>
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+
+
+        </div>
+        
+    </div>
+</div>
+
+<script src="~/Scripts/ckeditor/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace("Description");
+</script>
+@section scripts
+{
+    @(Html.GoogleMap().ScriptRegistrar())
+}

@@ -1,0 +1,82 @@
+﻿@model VientVendreMVC.Areas.User.Models.ProductViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@using (Html.BeginForm("Index", "AddOrEditMyProduct",FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>ProductViewModel</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })       
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ProductName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ProductName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ProductName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ProductPrice, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ProductPrice, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ProductPrice, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+//////////////////////////////
+//////////////////////////////////////
+////////////////////////////////////////////////
+@using (Html.BeginForm("Upload", "AddOrEditMyAnnonce", FormMethod.Post
+                                    , new { enctype = "multipart/form-data" }))
+{
+
+    <input type="file" name="file" size="40" />
+    <input type="submit" value="Upload" />
+
+    var i = int.Parse(TempData["ProductPhoto"].ToString());
+    TempData["ProductPhoto"] = i;
+}
+<br />
+<div>
+    <strong>Result</strong> <br />
+    @Html.Raw(ViewBag.Result)
+</div>
+
+
+@{
+    int numberOfPhotoUploaded = int.Parse(ViewBag.PhotoNumber);
+    for (int i = 0; i <= numberOfPhotoUploaded; i++)
+    {
+        var base64 = Convert.ToBase64String(Model.im);
+        var imgSrc = String.Format("data:image/jpg;base64,{0}", base64);
+
+            <img src="@imgSrc" width="100" height="100" />
+            }
+
+}

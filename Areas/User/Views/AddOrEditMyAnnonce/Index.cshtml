@@ -1,0 +1,72 @@
+﻿@model VientVendreMVC.Areas.User.Models.AnnonceViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="row">
+        <div class="form-horizontal">
+            <h4>AnnonceViewModel</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.AnnonceTitle, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.AnnonceTitle, new { htmlAttributes = new { @class = "form-control"} })
+                    @Html.ValidationMessageFor(model => model.AnnonceTitle, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.NombreProduct, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.NombreProduct, new { htmlAttributes = new { @class = "form-control", style = "width:10%" } })
+                    @Html.ValidationMessageFor(model => model.NombreProduct, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextAreaFor(model=>model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @{
+                        var i = 1;
+                        foreach (var reg in Model.Regions)
+                        {
+                            <div class="checkbox">
+                                <label for="@reg"><input type="checkbox" name="@i" />@reg</label>
+                            </div>
+                            i++;
+                        }
+                }
+            </div>
+
+
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Next" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    </div>                       
+
+                    }
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
