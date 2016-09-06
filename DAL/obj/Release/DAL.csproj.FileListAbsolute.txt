@@ -1,0 +1,9 @@
+C:\Users\dridi\Desktop\projet PCD\projet\solution6\VientVendre\DAL\bin\Release\DAL.dll
+C:\Users\dridi\Desktop\projet PCD\projet\solution6\VientVendre\DAL\bin\Release\DAL.pdb
+C:\Users\dridi\Desktop\projet PCD\projet\solution6\VientVendre\DAL\bin\Release\BOL.dll
+C:\Users\dridi\Desktop\projet PCD\projet\solution6\VientVendre\DAL\bin\Release\EntityFramework.dll
+C:\Users\dridi\Desktop\projet PCD\projet\solution6\VientVendre\DAL\bin\Release\BOL.pdb
+C:\Users\dridi\Desktop\projet PCD\projet\solution6\VientVendre\DAL\bin\Release\EntityFramework.xml
+C:\Users\dridi\Desktop\projet PCD\projet\solution6\VientVendre\DAL\obj\Release\DAL.csprojResolveAssemblyReference.cache
+C:\Users\dridi\Desktop\projet PCD\projet\solution6\VientVendre\DAL\obj\Release\DAL.dll
+C:\Users\dridi\Desktop\projet PCD\projet\solution6\VientVendre\DAL\obj\Release\DAL.pdb
