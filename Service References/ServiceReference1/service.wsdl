@@ -1,0 +1,897 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="AdminService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/AdminService" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/DTO" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import namespace="http://schemas.microsoft.com/Message" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IAdminService_GetData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetData" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetDataUsingDataContract_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataUsingDataContract" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetDataUsingDataContract_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataUsingDataContractResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAllUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUser" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAllUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetUserByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserByID" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetUserByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_CreateUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateUser" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_CreateUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeleteUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUser" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeleteUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdateUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUser" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdateUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAllAnnonce_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAnnonce" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAllAnnonce_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAnnonceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAnnonceByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAnnonceByID" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAnnonceByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAnnonceByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAnnonceByUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAnnonceByUser" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAnnonceByUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAnnonceByUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAnnonceByRegion_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAnnonceByRegion" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAnnonceByRegion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAnnonceByRegionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_CreateAnnonce_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateAnnonce" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_CreateAnnonce_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateAnnonceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeleteAnnonce_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAnnonce" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeleteAnnonce_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAnnonceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdateAnnonce_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAnnonce" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdateAnnonce_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAnnonceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAllProduct_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllProduct" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAllProduct_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetProductByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductByID" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetProductByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetProductByCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductByCategory" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetProductByCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductByCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetProductByRegion_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductByRegion" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetProductByRegion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductByRegionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetProductByCategoryAndRegion_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductByCategoryAndRegion" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetProductByCategoryAndRegion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductByCategoryAndRegionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetProductByAnnonce_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductByAnnonce" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetProductByAnnonce_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductByAnnonceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetProductByPrice_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductByPrice" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetProductByPrice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductByPriceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetProductByPriceAndRegion_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductByPriceAndRegion" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetProductByPriceAndRegion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductByPriceAndRegionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetProductByPriceAndCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductByPriceAndCategory" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetProductByPriceAndCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductByPriceAndCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetProductByPriceAndRegionAndCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductByPriceAndRegionAndCategory" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetProductByPriceAndRegionAndCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductByPriceAndRegionAndCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_CreateProduct_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateProduct" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_CreateProduct_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeleteProduct_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteProduct" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeleteProduct_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdateProduct_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateProduct" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdateProduct_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAllCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCategory" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAllCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetCategoryByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCategoryByID" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetCategoryByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCategoryByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_CreateCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateCategory" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_CreateCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeleteCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCategory" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeleteCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdateCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCategory" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdateCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAllRegion_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRegion" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAllRegion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRegionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetRegionByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRegionByID" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetRegionByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRegionByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_CreateRegion_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateRegion" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_CreateRegion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateRegionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeleteRegion_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRegion" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeleteRegion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRegionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdateRegion_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRegion" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdateRegion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRegionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAllPhotoInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPhotoInfo" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAllPhotoInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPhotoInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetPhotoInfoById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPhotoInfoById" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetPhotoInfoById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPhotoInfoByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_CreatePhotoInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreatePhotoInfo" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_CreatePhotoInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreatePhotoInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeletePhotoInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePhotoInfo" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_DeletePhotoInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePhotoInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdatePhotoInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePhotoInfo" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_UpdatePhotoInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePhotoInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetImage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetImage" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetImage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetImageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_ApproveOrRejectAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:ApproveOrRejectAll" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_ApproveOrRejectAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ApproveOrRejectAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAllComment_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllComment" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_GetAllComment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCommentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_createComment_InputMessage">
+    <wsdl:part name="parameters" element="tns:createComment" />
+  </wsdl:message>
+  <wsdl:message name="IAdminService_createComment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:createCommentResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IAdminService">
+    <wsdl:operation name="GetData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetData" message="tns:IAdminService_GetData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetDataResponse" message="tns:IAdminService_GetData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDataUsingDataContract">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetDataUsingDataContract" message="tns:IAdminService_GetDataUsingDataContract_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetDataUsingDataContractResponse" message="tns:IAdminService_GetDataUsingDataContract_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetAllUser" message="tns:IAdminService_GetAllUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetAllUserResponse" message="tns:IAdminService_GetAllUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetUserByID" message="tns:IAdminService_GetUserByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetUserByIDResponse" message="tns:IAdminService_GetUserByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/CreateUser" message="tns:IAdminService_CreateUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/CreateUserResponse" message="tns:IAdminService_CreateUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/DeleteUser" message="tns:IAdminService_DeleteUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/DeleteUserResponse" message="tns:IAdminService_DeleteUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/UpdateUser" message="tns:IAdminService_UpdateUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/UpdateUserResponse" message="tns:IAdminService_UpdateUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAnnonce">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetAllAnnonce" message="tns:IAdminService_GetAllAnnonce_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetAllAnnonceResponse" message="tns:IAdminService_GetAllAnnonce_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAnnonceByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetAnnonceByID" message="tns:IAdminService_GetAnnonceByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetAnnonceByIDResponse" message="tns:IAdminService_GetAnnonceByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAnnonceByUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetAnnonceByUser" message="tns:IAdminService_GetAnnonceByUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetAnnonceByUserResponse" message="tns:IAdminService_GetAnnonceByUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAnnonceByRegion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetAnnonceByRegion" message="tns:IAdminService_GetAnnonceByRegion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetAnnonceByRegionResponse" message="tns:IAdminService_GetAnnonceByRegion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateAnnonce">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/CreateAnnonce" message="tns:IAdminService_CreateAnnonce_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/CreateAnnonceResponse" message="tns:IAdminService_CreateAnnonce_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAnnonce">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/DeleteAnnonce" message="tns:IAdminService_DeleteAnnonce_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/DeleteAnnonceResponse" message="tns:IAdminService_DeleteAnnonce_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAnnonce">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/UpdateAnnonce" message="tns:IAdminService_UpdateAnnonce_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/UpdateAnnonceResponse" message="tns:IAdminService_UpdateAnnonce_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllProduct">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetAllProduct" message="tns:IAdminService_GetAllProduct_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetAllProductResponse" message="tns:IAdminService_GetAllProduct_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProductByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetProductByID" message="tns:IAdminService_GetProductByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetProductByIDResponse" message="tns:IAdminService_GetProductByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProductByCategory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetProductByCategory" message="tns:IAdminService_GetProductByCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetProductByCategoryResponse" message="tns:IAdminService_GetProductByCategory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProductByRegion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetProductByRegion" message="tns:IAdminService_GetProductByRegion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetProductByRegionResponse" message="tns:IAdminService_GetProductByRegion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProductByCategoryAndRegion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetProductByCategoryAndRegion" message="tns:IAdminService_GetProductByCategoryAndRegion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetProductByCategoryAndRegionResponse" message="tns:IAdminService_GetProductByCategoryAndRegion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProductByAnnonce">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetProductByAnnonce" message="tns:IAdminService_GetProductByAnnonce_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetProductByAnnonceResponse" message="tns:IAdminService_GetProductByAnnonce_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProductByPrice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetProductByPrice" message="tns:IAdminService_GetProductByPrice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetProductByPriceResponse" message="tns:IAdminService_GetProductByPrice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProductByPriceAndRegion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetProductByPriceAndRegion" message="tns:IAdminService_GetProductByPriceAndRegion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetProductByPriceAndRegionResponse" message="tns:IAdminService_GetProductByPriceAndRegion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProductByPriceAndCategory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetProductByPriceAndCategory" message="tns:IAdminService_GetProductByPriceAndCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetProductByPriceAndCategoryResponse" message="tns:IAdminService_GetProductByPriceAndCategory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProductByPriceAndRegionAndCategory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetProductByPriceAndRegionAndCategory" message="tns:IAdminService_GetProductByPriceAndRegionAndCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetProductByPriceAndRegionAndCategoryResponse" message="tns:IAdminService_GetProductByPriceAndRegionAndCategory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateProduct">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/CreateProduct" message="tns:IAdminService_CreateProduct_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/CreateProductResponse" message="tns:IAdminService_CreateProduct_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProduct">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/DeleteProduct" message="tns:IAdminService_DeleteProduct_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/DeleteProductResponse" message="tns:IAdminService_DeleteProduct_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateProduct">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/UpdateProduct" message="tns:IAdminService_UpdateProduct_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/UpdateProductResponse" message="tns:IAdminService_UpdateProduct_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCategory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetAllCategory" message="tns:IAdminService_GetAllCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetAllCategoryResponse" message="tns:IAdminService_GetAllCategory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCategoryByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetCategoryByID" message="tns:IAdminService_GetCategoryByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetCategoryByIDResponse" message="tns:IAdminService_GetCategoryByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateCategory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/CreateCategory" message="tns:IAdminService_CreateCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/CreateCategoryResponse" message="tns:IAdminService_CreateCategory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCategory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/DeleteCategory" message="tns:IAdminService_DeleteCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/DeleteCategoryResponse" message="tns:IAdminService_DeleteCategory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCategory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/UpdateCategory" message="tns:IAdminService_UpdateCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/UpdateCategoryResponse" message="tns:IAdminService_UpdateCategory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRegion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetAllRegion" message="tns:IAdminService_GetAllRegion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetAllRegionResponse" message="tns:IAdminService_GetAllRegion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRegionByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetRegionByID" message="tns:IAdminService_GetRegionByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetRegionByIDResponse" message="tns:IAdminService_GetRegionByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateRegion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/CreateRegion" message="tns:IAdminService_CreateRegion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/CreateRegionResponse" message="tns:IAdminService_CreateRegion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRegion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/DeleteRegion" message="tns:IAdminService_DeleteRegion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/DeleteRegionResponse" message="tns:IAdminService_DeleteRegion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRegion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/UpdateRegion" message="tns:IAdminService_UpdateRegion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/UpdateRegionResponse" message="tns:IAdminService_UpdateRegion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPhotoInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetAllPhotoInfo" message="tns:IAdminService_GetAllPhotoInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetAllPhotoInfoResponse" message="tns:IAdminService_GetAllPhotoInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPhotoInfoById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetPhotoInfoById" message="tns:IAdminService_GetPhotoInfoById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetPhotoInfoByIdResponse" message="tns:IAdminService_GetPhotoInfoById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreatePhotoInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/CreatePhotoInfo" message="tns:IAdminService_CreatePhotoInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/CreatePhotoInfoResponse" message="tns:IAdminService_CreatePhotoInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePhotoInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/DeletePhotoInfo" message="tns:IAdminService_DeletePhotoInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/DeletePhotoInfoResponse" message="tns:IAdminService_DeletePhotoInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePhotoInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/UpdatePhotoInfo" message="tns:IAdminService_UpdatePhotoInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/UpdatePhotoInfoResponse" message="tns:IAdminService_UpdatePhotoInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetImage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetImage" message="tns:IAdminService_GetImage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetImageResponse" message="tns:IAdminService_GetImage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ApproveOrRejectAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/ApproveOrRejectAll" message="tns:IAdminService_ApproveOrRejectAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/ApproveOrRejectAllResponse" message="tns:IAdminService_ApproveOrRejectAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllComment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/GetAllComment" message="tns:IAdminService_GetAllComment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/GetAllCommentResponse" message="tns:IAdminService_GetAllComment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="createComment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAdminService/createComment" message="tns:IAdminService_createComment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAdminService/createCommentResponse" message="tns:IAdminService_createComment_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IAdminService" type="tns:IAdminService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetData">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataUsingDataContract">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetDataUsingDataContract" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUser">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetAllUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByID">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetUserByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateUser">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/CreateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUser">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/DeleteUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/UpdateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAnnonce">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetAllAnnonce" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAnnonceByID">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetAnnonceByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAnnonceByUser">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetAnnonceByUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAnnonceByRegion">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetAnnonceByRegion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateAnnonce">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/CreateAnnonce" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAnnonce">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/DeleteAnnonce" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAnnonce">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/UpdateAnnonce" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllProduct">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetAllProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductByID">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetProductByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductByCategory">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetProductByCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductByRegion">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetProductByRegion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductByCategoryAndRegion">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetProductByCategoryAndRegion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductByAnnonce">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetProductByAnnonce" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductByPrice">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetProductByPrice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductByPriceAndRegion">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetProductByPriceAndRegion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductByPriceAndCategory">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetProductByPriceAndCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductByPriceAndRegionAndCategory">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetProductByPriceAndRegionAndCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateProduct">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/CreateProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProduct">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/DeleteProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateProduct">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/UpdateProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCategory">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetAllCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCategoryByID">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetCategoryByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateCategory">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/CreateCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCategory">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/DeleteCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCategory">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/UpdateCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRegion">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetAllRegion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRegionByID">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetRegionByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateRegion">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/CreateRegion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRegion">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/DeleteRegion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRegion">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/UpdateRegion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPhotoInfo">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetAllPhotoInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPhotoInfoById">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetPhotoInfoById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreatePhotoInfo">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/CreatePhotoInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePhotoInfo">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/DeletePhotoInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePhotoInfo">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/UpdatePhotoInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetImage">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetImage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ApproveOrRejectAll">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/ApproveOrRejectAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllComment">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/GetAllComment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createComment">
+      <soap:operation soapAction="http://tempuri.org/IAdminService/createComment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AdminService">
+    <wsdl:port name="BasicHttpBinding_IAdminService" binding="tns:BasicHttpBinding_IAdminService">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/AdminService/AdminService/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

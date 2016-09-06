@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/DTO" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/DTO" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="ArrayOfUserDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UserDTO" nillable="true" type="tns:UserDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUserDTO" nillable="true" type="tns:ArrayOfUserDTO" />
+  <xs:complexType name="UserDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Annonces" nillable="true" type="tns:ArrayOfAnnonceDTO" />
+      <xs:element minOccurs="0" name="CommentUserProds" nillable="true" type="tns:ArrayOfCommentUserProdDTO" />
+      <xs:element minOccurs="0" name="DateOfBirth" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsApproved" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhoneNumber" type="xs:int" />
+      <xs:element minOccurs="0" name="UserID" type="xs:int" />
+      <xs:element minOccurs="0" name="UserLastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="sex" type="ser:char" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserDTO" nillable="true" type="tns:UserDTO" />
+  <xs:complexType name="ArrayOfAnnonceDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AnnonceDTO" nillable="true" type="tns:AnnonceDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAnnonceDTO" nillable="true" type="tns:ArrayOfAnnonceDTO" />
+  <xs:complexType name="AnnonceDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AnnonceID" type="xs:int" />
+      <xs:element minOccurs="0" name="AnnonceTitle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Products" nillable="true" type="tns:ArrayOfProductDTO" />
+      <xs:element minOccurs="0" name="Regions" nillable="true" type="tns:ArrayOfRegionDTO" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="RegionsDTOID" nillable="true" type="q1:ArrayOfint" />
+      <xs:element minOccurs="0" name="UserDTO" nillable="true" type="tns:UserDTO" />
+      <xs:element minOccurs="0" name="UserDTOID" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AnnonceDTO" nillable="true" type="tns:AnnonceDTO" />
+  <xs:complexType name="ArrayOfProductDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProductDTO" nillable="true" type="tns:ProductDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProductDTO" nillable="true" type="tns:ArrayOfProductDTO" />
+  <xs:complexType name="ProductDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Annonce" nillable="true" type="tns:AnnonceDTO" />
+      <xs:element minOccurs="0" name="AnnonceDTOID" type="xs:int" />
+      <xs:element minOccurs="0" name="Categories" nillable="true" type="tns:ArrayOfCategoryDTO" />
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="CategoriesID" nillable="true" type="q2:ArrayOfint" />
+      <xs:element minOccurs="0" name="IsApproved" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhotoInfos" nillable="true" type="tns:ArrayOfPhotoInfoDTO" />
+      <xs:element minOccurs="0" name="ProductID" type="xs:int" />
+      <xs:element minOccurs="0" name="ProductName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProductPrice" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProductDTO" nillable="true" type="tns:ProductDTO" />
+  <xs:complexType name="ArrayOfCategoryDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CategoryDTO" nillable="true" type="tns:CategoryDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCategoryDTO" nillable="true" type="tns:ArrayOfCategoryDTO" />
+  <xs:complexType name="CategoryDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CategoryID" type="xs:int" />
+      <xs:element minOccurs="0" name="CategoryName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Products" nillable="true" type="tns:ArrayOfProductDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CategoryDTO" nillable="true" type="tns:CategoryDTO" />
+  <xs:complexType name="ArrayOfPhotoInfoDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PhotoInfoDTO" nillable="true" type="tns:PhotoInfoDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPhotoInfoDTO" nillable="true" type="tns:ArrayOfPhotoInfoDTO" />
+  <xs:complexType name="PhotoInfoDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Path" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhotoInfoID" type="xs:int" />
+      <xs:element minOccurs="0" name="PhotoName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProductID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="UploadedOn" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PhotoInfoDTO" nillable="true" type="tns:PhotoInfoDTO" />
+  <xs:complexType name="ArrayOfRegionDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RegionDTO" nillable="true" type="tns:RegionDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRegionDTO" nillable="true" type="tns:ArrayOfRegionDTO" />
+  <xs:complexType name="RegionDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Annonces" nillable="true" type="tns:ArrayOfAnnonceDTO" />
+      <xs:element minOccurs="0" name="RegionID" type="xs:int" />
+      <xs:element minOccurs="0" name="RegionName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RegionDTO" nillable="true" type="tns:RegionDTO" />
+  <xs:complexType name="ArrayOfCommentUserProdDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CommentUserProdDTO" nillable="true" type="tns:CommentUserProdDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCommentUserProdDTO" nillable="true" type="tns:ArrayOfCommentUserProdDTO" />
+  <xs:complexType name="CommentUserProdDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CommentUserProdID" type="xs:int" />
+      <xs:element minOccurs="0" name="PostDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Product" nillable="true" type="tns:ProductDTO" />
+      <xs:element minOccurs="0" name="ProductID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="User" nillable="true" type="tns:UserDTO" />
+      <xs:element minOccurs="0" name="UserID" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CommentUserProdDTO" nillable="true" type="tns:CommentUserProdDTO" />
+</xs:schema>
